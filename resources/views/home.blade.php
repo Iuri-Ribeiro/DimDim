@@ -26,30 +26,14 @@
                     </tr>
                 </thead>
                 <tbody class="bg-green-50">
-                    <tr class="even:bg-white-100">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">21/04/2023</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Salário</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">2.000,00</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Entrada</td>
-                    </tr>
-                    <tr class="even:bg-white">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">22/04/2023</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Supermercado</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">77,86</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Saída</td>
-                    </tr>
-                    <tr class="even:bg-white">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">22/04/2023</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Mesada</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">200</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Entrada</td>
-                    </tr>
-                    <tr class="even:bg-white">
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">22/04/2023</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Supermercado</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">77,86</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm">Saída</td>
-                    </tr>
+                    @foreach ($transactions as $transaction)
+                        <tr class="even:bg-white-100">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $transaction['date'] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $transaction['description'] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $transaction['value'] }}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm">{{ $transaction['type'] }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
