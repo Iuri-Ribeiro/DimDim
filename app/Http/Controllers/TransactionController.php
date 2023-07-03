@@ -3,38 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class TransactionController extends Controller
 {
     public function index()
     {
+        $transactions = Http::get("localhost:3000/transaction")->json()['result'];
 
-        $transactions = array(
-            array(
-                "date" => "21/04/2023",
-                "description" => "Salario",
-                "value" => "2.000,00",
-                "type" => "Entrada"
-            ),
-            array(
-                "date" => "22/04/2023",
-                "description" => "Supermercado",
-                "value" => "77,86",
-                "type" => "Saída"
-            ),
-            array(
-                "date" => "22/04/2023",
-                "description" => "Mesada",
-                "value" => "200,00",
-                "type" => "Saída"
-            ),
-            array(
-                "date" => "22/04/2023",
-                "description" => "Supermercado",
-                "value" => "84,60",
-                "type" => "Saída"
-            )
-        );
         return view('home', ['transactions' => $transactions]);
 
     }
